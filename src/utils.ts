@@ -70,6 +70,7 @@ ${bodyWithoutJiraDetails}`;
 export const buildPRDescription = (details: JIRADetails) => {
   const displayKey = details.key.toUpperCase();
   return `
+  <div>
     <h2>
       <a href="${details.url}" title="${displayKey}" target="_blank">
         <img alt="${details.type.name}" src="${details.type.icon}" />
@@ -77,7 +78,10 @@ export const buildPRDescription = (details: JIRADetails) => {
       </a>
       ${details.summary}
     </h2>
-    
+  </div>
+  
+  <div>
     ${details.description}
+  </div>
   `;
 };
