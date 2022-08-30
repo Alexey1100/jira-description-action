@@ -28,12 +28,13 @@ export class JiraConnector {
     try {
       const issue: JIRA.Issue = await this.getIssue(key);
       const {
-        fields: { issuetype: type, project, summary },
+        fields: { issuetype: type, project, summary, description },
       } = issue;
 
       return {
         key,
         summary,
+        description,
         url: `${this.JIRA_BASE_URL}/browse/${key}`,
         type: {
           name: type.name,
@@ -54,7 +55,7 @@ export class JiraConnector {
   }
 
   async getIssue(id: string): Promise<JIRA.Issue> {
-    const url = `/issue/${id}?fields=project,summary,issuetype`;
+    const url = `/issue/${id}?fields=project,summary,description,issuetype`;
     const response = await this.client.get<JIRA.Issue>(url);
     return response.data;
   }
