@@ -1,5 +1,5 @@
 name: 'jira-description'
-description: 'Add JIRA issue details to your GitHub pull request.'
+description: 'Add JIRA issue description to your GitHub pull request.'
 author: 'Alexey1100'
 inputs:
   github-token:
