@@ -80,8 +80,8 @@ export const buildPRDescription = (details: JIRADetails) => {
     </h2>
   </div>
   
-  <div>
+  <blockquote>
     ${details.description}
-  </div>
+  </blockquote>
   `;
 };
